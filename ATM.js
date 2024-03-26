@@ -1,20 +1,21 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 let balance = 10000;
 const pinCode = 1234;
-let insertedPin = await inquirer.prompt([
-    {
-        name: "userInput",
-        message: "Enter your Pin : ",
-        type: "number"
-    },
-    {
-        name: "action",
-        message: "What do you want to do",
-        type: "list",
-        choices: ["Withdraw", "Check_Balance", "Deposit"]
-    },
-]);
-if (insertedPin.userInput === 1234) {
+let pin = await inquirer.prompt({
+    name: "userInput",
+    message: "Enter your Pin : ",
+    type: "number"
+});
+if (pin.userInput === 1234) {
+    let insertedPin = await inquirer.prompt([
+        {
+            name: "action",
+            message: "What do you want to do",
+            type: "list",
+            choices: ["Withdraw", "Check_Balance", "Deposit"]
+        },
+    ]);
     // console.log(`BALANCE : ${balance}`)
     if (insertedPin.action === "Withdraw") {
         let optionOfWithdrawal = await inquirer.prompt({

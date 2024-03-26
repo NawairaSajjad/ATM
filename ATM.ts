@@ -1,22 +1,28 @@
+#! /usr/bin/env node
+
 import inquirer from "inquirer";
 
 let balance: number = 10000;
 const pinCode: number = 1234;
 
-let insertedPin = await inquirer.prompt([
-    {
+
+let pin = await inquirer.prompt({
+    
         name: "userInput",
         message: "Enter your Pin : ",
         type: "number"
-    },
-    {
-        name: "action",
-        message: "What do you want to do",
-        type: "list",
-        choices: ["Withdraw","Check_Balance","Deposit"]
-    },
-]);
-if(insertedPin.userInput === 1234 ){
+    
+})
+if(pin.userInput === 1234 ){
+    let insertedPin = await inquirer.prompt([
+    
+        {
+            name: "action",
+            message: "What do you want to do",
+            type: "list",
+            choices: ["Withdraw","Check_Balance","Deposit"]
+        },
+    ]);
 
    // console.log(`BALANCE : ${balance}`)
 
@@ -88,7 +94,7 @@ else if(insertedPin.action === "Deposit"){
 }else{
     console.log("exit")
 }
-} else{
+} 
+else{
     console.log("Invalid Pin, Please try again");
-    
 }
