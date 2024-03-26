@@ -1,2 +1,1 @@
- "# AutomtedTellerMachine"
-"# AutomatedTellerMachine101" 
+"# ATM" 
